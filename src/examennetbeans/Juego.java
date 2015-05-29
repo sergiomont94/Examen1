@@ -131,18 +131,18 @@ public class Juego extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(bar_jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbl_vida_jugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btn_ataque_jugador1_3)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(btn_ataque_jugador1)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btn_ataque_jugador1_1)))
-                                        .addGap(181, 181, 181)))
+                                                .addComponent(btn_ataque_jugador1_1))
+                                            .addComponent(btn_ataque_jugador1_3))
+                                        .addGap(155, 155, 155)))
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbl_vida_jugador2)))
@@ -226,12 +226,18 @@ public class Juego extends javax.swing.JFrame {
           btn_ataque_jugador1.setEnabled(false);
           btn_ataque_jugador2.setEnabled(false);
           btn_ataque_jugador1_1.setEnabled(false);
+          btn_ataque_jugador1_3.setEnabled(false);
+          btn_ataque_jugador2_2.setEnabled(false);
+          btn_ataque_jugador2_3.setEnabled(false);
        }else
        {
            lbl_turno.setText("Jugador 2");
            btn_ataque_jugador1.setEnabled(false);
-           btn_ataque_jugador2.setEnabled(true);
            btn_ataque_jugador1_1.setEnabled(false);
+           btn_ataque_jugador1_3.setEnabled(false);
+           btn_ataque_jugador2.setEnabled(true);
+           btn_ataque_jugador2_2.setEnabled(true);
+           btn_ataque_jugador2_3.setEnabled(true);
        }
        //bar_jugador1
        lbl_vida_jugador2.setText("" + vida_jugador2);
@@ -250,15 +256,21 @@ public class Juego extends javax.swing.JFrame {
        {
           vida_jugador1 = 0;
           lbl_game_over.setText("Juego terminado, el jugador 2 ha ganado!"); 
+         btn_ataque_jugador1.setEnabled(false);
+          btn_ataque_jugador1_1.setEnabled(false);
+          btn_ataque_jugador1_3.setEnabled(false);
           btn_ataque_jugador2.setEnabled(false);
-          btn_ataque_jugador1.setEnabled(false);
           btn_ataque_jugador2_2.setEnabled(false);
+          btn_ataque_jugador2_3.setEnabled(false);
        }else
        {
            lbl_turno.setText("Jugador 1");
-           btn_ataque_jugador2.setEnabled(false);
            btn_ataque_jugador1.setEnabled(true);
+           btn_ataque_jugador1_1.setEnabled(true);
+           btn_ataque_jugador1_3.setEnabled(true);
+           btn_ataque_jugador2.setEnabled(false);
            btn_ataque_jugador2_2.setEnabled(false);
+           btn_ataque_jugador2_3.setEnabled(false);
        }
         lbl_vida_jugador1.setText("" + vida_jugador1);
                
@@ -272,21 +284,27 @@ public class Juego extends javax.swing.JFrame {
         if (lbl_turno.getText().equals("Jugador 2"))
        {
         int vida_jugador1 = Integer.parseInt(lbl_vida_jugador1.getText());
-        vida_jugador1 -= random.nextInt(20);
+        vida_jugador1 -= random.nextInt(15);
         
        if(vida_jugador1<=0)
        {
           vida_jugador1 = 0;
           lbl_game_over.setText("Juego terminado, el jugador 2 ha ganado!"); 
-          btn_ataque_jugador2.setEnabled(false);
           btn_ataque_jugador1.setEnabled(false);
+          btn_ataque_jugador1_1.setEnabled(false);
+          btn_ataque_jugador1_3.setEnabled(false);
+          btn_ataque_jugador2.setEnabled(false);
           btn_ataque_jugador2_2.setEnabled(false);
+          btn_ataque_jugador2_3.setEnabled(false);
        }else
        {
            lbl_turno.setText("Jugador 1");
+          btn_ataque_jugador1.setEnabled(true);
+           btn_ataque_jugador1_1.setEnabled(true);
+           btn_ataque_jugador1_3.setEnabled(true);
            btn_ataque_jugador2.setEnabled(false);
-           btn_ataque_jugador1.setEnabled(true);
            btn_ataque_jugador2_2.setEnabled(false);
+           btn_ataque_jugador2_3.setEnabled(false);
        }
         lbl_vida_jugador1.setText("" + vida_jugador1);
                
@@ -298,19 +316,27 @@ public class Juego extends javax.swing.JFrame {
          if (lbl_turno.getText().equals("Jugador 1"))
        {
         int vida_jugador2 = Integer.parseInt(lbl_vida_jugador2.getText());
-        vida_jugador2 -= random.nextInt(20);
+        vida_jugador2 -= random.nextInt(15);
         
        if(vida_jugador2<=0)
        {
           vida_jugador2 = 0;
           lbl_game_over.setText("Juego terminado, el jugador 1 ha ganado!"); 
           btn_ataque_jugador1.setEnabled(false);
+          btn_ataque_jugador1_1.setEnabled(false);
+          btn_ataque_jugador1_3.setEnabled(false);
           btn_ataque_jugador2.setEnabled(false);
+          btn_ataque_jugador2_2.setEnabled(false);
+          btn_ataque_jugador2_3.setEnabled(false);
        }else
        {
            lbl_turno.setText("Jugador 2");
            btn_ataque_jugador1.setEnabled(false);
+           btn_ataque_jugador1_1.setEnabled(false);
+           btn_ataque_jugador1_3.setEnabled(false);
            btn_ataque_jugador2.setEnabled(true);
+           btn_ataque_jugador2_2.setEnabled(true);
+           btn_ataque_jugador2_3.setEnabled(true);
        }
        //bar_jugador1
        lbl_vida_jugador2.setText("" + vida_jugador2);
@@ -323,21 +349,27 @@ public class Juego extends javax.swing.JFrame {
       if (lbl_turno.getText().equals("Jugador 2"))
        {
         int vida_jugador1 = Integer.parseInt(lbl_vida_jugador1.getText());
-        vida_jugador1-= random.nextInt(50);
+        vida_jugador1-= random.nextInt(10)+5;
         
        if(vida_jugador1<=0)
        {
           vida_jugador1 = 0;
           lbl_game_over.setText("Juego terminado, el jugador 2 ha ganado!"); 
+         btn_ataque_jugador1.setEnabled(false);
+          btn_ataque_jugador1_1.setEnabled(false);
+          btn_ataque_jugador1_3.setEnabled(false);
           btn_ataque_jugador2.setEnabled(false);
-          btn_ataque_jugador1.setEnabled(false);
           btn_ataque_jugador2_2.setEnabled(false);
+          btn_ataque_jugador2_3.setEnabled(false);
        }else
        {
            lbl_turno.setText("Jugador 1");
-           btn_ataque_jugador2.setEnabled(false);
            btn_ataque_jugador1.setEnabled(true);
+           btn_ataque_jugador1_1.setEnabled(true);
+           btn_ataque_jugador1_3.setEnabled(true);
+           btn_ataque_jugador2.setEnabled(false);
            btn_ataque_jugador2_2.setEnabled(false);
+           btn_ataque_jugador2_3.setEnabled(false);
        }
         lbl_vida_jugador1.setText("" + vida_jugador1);
                
@@ -350,7 +382,7 @@ public class Juego extends javax.swing.JFrame {
         if (lbl_turno.getText().equals("Jugador 1"))
        {
         int vida_jugador2 = Integer.parseInt(lbl_vida_jugador2.getText());
-        vida_jugador2 -= random.nextInt(50);
+        vida_jugador2 -= random.nextInt(10)+5;
         
        if(vida_jugador2<=0)
        {
@@ -358,11 +390,19 @@ public class Juego extends javax.swing.JFrame {
           lbl_game_over.setText("Juego terminado, el jugador 1 ha ganado!"); 
           btn_ataque_jugador1.setEnabled(false);
           btn_ataque_jugador2.setEnabled(false);
+          btn_ataque_jugador1_1.setEnabled(false);
+          btn_ataque_jugador1_3.setEnabled(false);
+          btn_ataque_jugador2_2.setEnabled(false);
+          btn_ataque_jugador2_3.setEnabled(false);
        }else
        {
            lbl_turno.setText("Jugador 2");
            btn_ataque_jugador1.setEnabled(false);
+           btn_ataque_jugador1_1.setEnabled(false);
+           btn_ataque_jugador1_3.setEnabled(false);
            btn_ataque_jugador2.setEnabled(true);
+           btn_ataque_jugador2_2.setEnabled(true);
+           btn_ataque_jugador2_3.setEnabled(true);
        }
        //bar_jugador1
        lbl_vida_jugador2.setText("" + vida_jugador2);
